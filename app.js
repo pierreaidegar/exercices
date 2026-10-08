@@ -308,7 +308,7 @@ async function generateQuiz() {
 
   showLoader(LOADING_MESSAGES_GEN);
   try {
-    const out = await callClaude({ system: SYSTEM_GENERATION, content, schema: QUIZ_SCHEMA, effort: "medium" });
+    const out = await callClaude({ system: SYSTEM_GENERATION, content, schema: QUIZ_SCHEMA, effort: "medium", maxTokens: 32000 });
     if (out.erreur && (!out.questions || out.questions.length === 0)) {
       throw new ApiError(out.erreur);
     }
@@ -422,7 +422,7 @@ async function correctSession() {
         }],
         schema: CORRECTION_SCHEMA,
         effort: "low",
-        maxTokens: 8000,
+        maxTokens: 16000,
       });
       for (const r of out.resultats || []) {
         if (aCorriger.some((q) => q.id === r.id)) {
