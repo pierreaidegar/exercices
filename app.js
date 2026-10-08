@@ -930,7 +930,7 @@ function launchConfetti() {
   canvas.width = innerWidth * dpr;
   canvas.height = innerHeight * dpr;
   ctx.scale(dpr, dpr);
-  const colors = ["#7c3aed", "#ec4899", "#f97316", "#facc15", "#16a34a", "#0ea5e9"];
+  const colors = ["#6f8f72", "#cf9d3f", "#c0704f", "#50697f", "#2e2b27"];
   const parts = Array.from({ length: 140 }, () => ({
     x: innerWidth / 2 + (Math.random() - 0.5) * 80,
     y: innerHeight / 3,
